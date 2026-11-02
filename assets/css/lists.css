@@ -1,0 +1,131 @@
+/* Estil per a llistes ordenades amb numeració jeràrquica */
+
+/* Nivell 1 */
+/* 
+ol {
+    list-style-type: none !important;
+    counter-reset: level1; 
+    padding-left: 1rem; 
+    margin-left: 0;
+}
+
+ol > li {
+    counter-increment: level1; 
+    margin-bottom: 0.5rem;
+    content:'';
+}
+
+ol > li::before {
+    content: counter(level1) ". "; 
+}
+
+
+ol > li > ol {
+    list-style-type: none;
+    counter-reset: level2; 
+    margin-left: 1.5rem; 
+    padding-left: 0;
+}
+
+ol > li > ol > li {
+    counter-increment: level2; 
+}
+
+ol > li > ol > li::before {
+    content: counter(level1) "." counter(level2) ". "; 
+}
+
+ol > li > ol > li > ol {
+    list-style-type: none;
+    counter-reset: level3; 
+    margin-left: 1.5rem; 
+    padding-left: 0;
+}
+
+ol > li > ol > li > ol > li {
+    counter-increment: level3; 
+}
+
+ol > li > ol > li > ol > li::before {
+    content: counter(level1) "." counter(level2) "." counter(level3) ". "; 
+}
+
+
+
+li>p {
+    display:inline;
+}
+
+::marker {
+    content:"";
+} 
+
+ol {
+    counter-reset: custom-counter;
+}
+
+ol > li {
+    counter-increment: custom-counter;
+    list-style: none;
+    position: relative;
+    padding-left: 2.5em; 
+}
+
+ol > li::before {
+    content: counter(custom-counter, decimal-leading-zero) ".";
+    position: absolute;
+    left: 0;
+    width: 2em;
+    text-align: right;
+}
+
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0");
+
+ol {
+    counter-reset: custom-counter;
+}
+
+ol > li {
+    counter-increment: custom-counter;
+    list-style: none;
+    position: relative;
+    padding-left: 2.3em;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+ol > li::before {
+    content: counter(custom-counter, decimal);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 0.78rem;
+    line-height: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid var(--md-primary-fg-color);
+    background-color: var(--md-primary-fg-color);
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding: 0;
+    font-weight: bold;
+    color: var(--md-typeset-code-color);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+
+
+ol > li:hover::before {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 0.1rem color-mix(in srgb, var(--md-primary-fg-color) 20%, transparent);
+}
+
+
+

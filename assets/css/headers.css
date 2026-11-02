@@ -1,0 +1,98 @@
+
+/* Amb l'objectiu de separar estil de contingut, vull substituir dels md
+  aquest tipus d'expressions `# :material-book:`, de manera que quan
+  en el md aparega `#`, es genere un títol i mitjançant css afegirem davant la icona corresponent. */
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0");
+
+h1:not([class]){
+
+  line-height: 1.25;
+  letter-spacing: .02em;
+  text-wrap: content; 
+  text-align: center;
+
+  border-radius: 10px;
+  font-size:2em;
+  font-weight: bold;
+  color:var(--md-typeset-code-color);
+  background: var(--fons-svg) no-repeat center center;
+  background-size: cover;
+  padding:40px;
+  
+}
+
+h1:not([class])::before {
+
+  content: "book";
+    font-family: "Material Symbols Rounded";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  line-height: 1;
+  white-space: nowrap;
+  direction: ltr;
+
+
+    margin-right: 0.25em;
+    vertical-align:text-top;
+
+    --md-icon-size: 1.125em;
+    display: inline-block;
+    font-size: var(--md-icon-size);
+    height: var(--md-icon-size);    
+
+}
+
+
+ h2:not([class]), h3:not([class]) {
+  transition: color 0.35s ease, transform 0.35s ease, text-shadow 0.35s ease;
+}
+
+h2:not([class]):hover, h3:not([class]):hover {
+  color: var(--md-primary-fg-color);
+  transform: translateX(0.15em);
+  text-shadow: 0 0 0.35em color-mix(in srgb, var(--md-primary-fg-color) 35%, transparent);
+}
+
+
+
+h2:not([class])::before {
+
+  content: "description";
+font-family: "Material Symbols Rounded";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  line-height: 1;
+  white-space: nowrap;
+  direction: ltr;   
+
+    margin-left: 0.5em;
+    margin-right: 0.25em;
+    vertical-align:text-top;
+
+    --md-icon-size: 1.125em;
+    display: inline-block;
+    font-size: var(--md-icon-size);
+    height: var(--md-icon-size);
+}
+
+h3:not([class])::before {
+
+  content: "article";
+font-family: "Material Symbols Rounded";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  line-height: 1;
+  white-space: nowrap;
+  direction: ltr;   
+
+    margin-left: 1em;
+    margin-right: 0.25em;
+    vertical-align:text-top;
+
+    --md-icon-size: 1.125em;
+    display: inline-block;
+    font-size: var(--md-icon-size);
+    height: var(--md-icon-size);
+}       
+
+
+
+
+
